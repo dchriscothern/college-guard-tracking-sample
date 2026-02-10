@@ -1,173 +1,82 @@
-College Guard Tracking Sample – Applied Basketball Analytics
-A demonstration of basketball tracking analysis using Python, Pandas, and Matplotlib.
+# College Guard Tracking Sample – Applied Basketball Performance Analytics  
+*A portfolio demonstration of basketball tracking analysis using Python, Seaborn, and custom NBA court visualizations.*
 
-📌 Project Overview
+---
 
-This project demonstrates how possession-level tracking data can be transformed into actionable basketball insights.
-Using a small simulated dataset (created to mimic real tracking structures such as SkillCorner), the notebook walks through:
+## 📌 Project Overview  
+This project showcases how frame-level tracking data can be transformed into **actionable basketball insights** for coaches, scouts, and performance staff.  
 
-Cleaning and preparing tracking data
-Calculating speed, direction, acceleration, defender distance, and possession context
-Identifying attacking advantage
-Visualizing drive corridors, defender matchups, and positional tendencies
-Generating scouting-style insights for coaches and performance staff
-Creating movement heatmaps to profile spatial tendencies and defensive pressure
+Using a small sample dataset (structured similarly to providers like SkillCorner or Second Spectrum), this notebook:
 
-This project is built to serve as a basketball analytics sample for applied sport science, scouting, and player development roles.
+- Processes player movement and defender proximity  
+- Generates key performance and spatial metrics  
+- Maps all actions onto a **true NBA-calibrated halfcourt**  
+- Creates high-value scouting and sport-science visualizations  
+- Summarizes movement load, advantage creation, and spacing patterns  
 
-📁 Repository Contents
+The project is intentionally lightweight so hiring managers can quickly evaluate both the analytics workflow and the communication quality.
 
-📦 college_guard_tracking_sample
-│
-├── tracking_college_guard_sample.csv – Example possession-level data
-├── college_guard_tracking_analysis.ipynb – Google Colab / Python analysis
-└── README.md – Project description
+---
 
-🏀 What This Analysis Demonstrates
-1. Drive Lane Profiling
+## 🏀 Key Visualizations & What They Mean  
 
-Heat-like visualization showing the guard’s path relative to the ball and defender.
-Used to identify:
+### **1. Movement Path Mapped to NBA Court**  
+Shows the player’s physical route during the possession, overlaid with true court geometry.  
+**Interpretation:**  
+- Identifies driving angles  
+- Shows lane access and route efficiency  
+- Highlights how early or late the guard bends into the middle or rejects a ball screen  
 
-Preferred attack angles
-Tendencies versus hedges or switches
-Scouting visuals for spacing and decision making
+---
 
-2. Speed + Advantage Mapping
+### **2. Movement Density Heatmap**  
+A contour “hot spot” map showing where the guard spent the most time.  
+**Interpretation:**  
+- High density around slot → indicates POA creation, pick-and-roll initiation  
+- Density at the nail → suggests mid-paint touch frequency or hesitation points  
+- Spread toward wing/corner → indicates drift patterns vs. switches  
 
-Scatter plot showing when speed peaks occur relative to defender distance.
-Shows:
+This is one of the *highest-value visuals* for scouts because it reveals *tendencies without watching film*.
 
-Burst ability
-Whether separation is created through acceleration or angles
-How advantage evolves during a possession
+---
 
-3. Shot Context Visualization
+### **3. Defender Distance Heatmap**  
+Weighted KDE showing where the defender was closest/furthest during the possession.  
+**Interpretation:**  
+- Warm areas = defender giving space (potential pull-up windows)  
+- Cool areas = tight coverage  
+- Spatial matchup profile helps evaluate advantage creation and reading drops  
 
-Overlay of potential shot locations relative to defender proximity.
-Useful for:
+---
 
-Evaluating shot selection
-Understanding spacing and timing
-Teaching quality-shot principles
+### **4. Advantage Map (Color-Coded)**  
+Scatter plot showing where the guard gained or lost advantage, mapped to the court.  
+**Interpretation:**  
+- Advantage clusters indicate where the guard reliably creates separation  
+- Helps differentiate between guards who create advantage **from speed**, **angles**, or **deception**  
+- Useful for scouting reports and matchup planning  
 
-4. Movement Density Heatmap (New)
+---
 
-This heatmap shows where the guard spent the most time on the floor.
-It highlights:
+## 🧪 Technical Stack  
 
-Preferred driving corridors
-Natural spacing patterns
-High-frequency positional tendencies
+**Languages & Libraries**  
+- Python 3.10  
+- Pandas (data processing)  
+- NumPy (vector math)  
+- Seaborn & Matplotlib (visuals)  
+- Custom NBA court geometry (Arc, Circle, Rectangle patches)
 
-This is similar to outputs used by tracking providers like SkillCorner, Second Spectrum, and Synergy.
+**Workflow**  
+- CSV ingestion → feature engineering → coordinate normalization  
+- Speed, acceleration, COD load  
+- Continuous advantage profiling  
+- Heatmaps + scouting overlays  
+- Insight summary  
 
-5. Defender Distance Heatmap (New)
+**Environment**  
+- Google Colab (fully reproducible, no dependencies to install)
 
-A heatmap that visualizes defender proximity across the possession.
-It helps identify:
+---
 
-Areas where the guard gained separation
-Zones of defensive pressure
-Situations where advantage was likely created
-
-6. Advantage State Map (New)
-
-Scattermap showing each frame colored by advantage state.
-Supports:
-
-Understanding when and where advantage occurs
-Linking positional data to tactical decision making
-Scouting how a guard manipulates space
-
-🧪 Technical Stack
-Languages and Libraries
-
-Python 3.10+
-Pandas – data cleaning and feature creation
-NumPy – vector calculations for velocity and acceleration
-Matplotlib / Seaborn – movement maps and scouting visualizations
-
-Environment
-
-Google Colab
-Jupyter Notebook workflow for coaching and sport science environments
-
-Data Structures
-
-Wide-format tracking dataset with frame-level positions.
-Derived metrics include:
-
-velocity
-acceleration
-defender distance
-possession context
-calculated advantage
-change-of-direction load
-
-Tools and Workflow
-
-CSV ingestion
-Preprocessing and feature engineering
-Heatmap and movement-map visualization
-Coach-facing insight summaries
-
-GitHub version control
-
-🚀 Future Improvements
-
-Add richer possession context
-Incorporate screen locations, help rotations, tagging, spacing, and role-based interactions.
-
-Build an expected advantage model
-Predict advantage from separation, acceleration, and angle.
-
-Automate drive classification
-Model straight-line drives, rejects, snake dribbles, hesitation bursts, and crossovers.
-
-Extend to full games
-Build game-based player reports for scouting or player development workflows.
-
-Create an interactive dashboard
-Use Streamlit for live coach-facing decision support.
-
-Integrate orientation and off-ball tracking
-Add heading, space control, and tactical involvement metrics.
-
-Build a reusable Python template
-Allow other practitioners to drop in a CSV and instantly generate a visual report.
-
-▶️ How to Run the Notebook
-
-Upload tracking_college_guard_sample.csv into your Colab session
-
-Open the notebook
-Run all cells
-Visual outputs will generate:
-Drive path chart
-Speed vs advantage scatter
-Shot-context visualization
-Movement density heatmap
-Defender distance heatmap
-Advantage map
-COD and speed timelines
-
-All dependencies are handled automatically in Colab.
-
-👥 Why This Project Matters
-
-This project shows how raw tracking data becomes usable basketball insight for:
-
-Player development staff, Video coordinators, Sport scientists, Scouting departments, Sport tech companies
-
-It demonstrates practical Python work applicable to college, professional, and sport-tech environments.
-
-📬 Contact
-
-If you would like to discuss basketball analytics, sport science workflows, or tracking data:
-
-Chris Cothern
-Website: https://www.chriscothern.com
-LinkedIn: https://www.linkedin.com/in/chriscothern
-
-This sample project is intended for demonstration, education, and portfolio use.
+## 📁 Repository Contents  
