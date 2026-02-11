@@ -1,157 +1,167 @@
-# College Guard Tracking Sample – Applied Basketball Analytics  
-A demonstration of how tracking data can be transformed into clear, coach-ready basketball insight using Python, Pandas, Seaborn, and Matplotlib.
+College Guard Tracking Sample — Applied Basketball Tracking Analysis
 
----
+A demonstration of how frame-level tracking data can be transformed into clean, interpretable insights for coaches, scouts, and performance staff.
 
-## 📌 Project Overview  
-This project showcases how frame-level tracking data can be turned into **actionable information** for coaches, scouts, and performance teams.  
+📌 Project Overview
 
-Using a simulated possession modeled after SkillCorner-style tracking, this analysis demonstrates:
+This project analyzes a college guard’s movement using simulated tracking-style positional data.
+The goal is to show a SkillCorner-style workflow:
 
-- Data cleaning and transformation of positional and velocity data  
-- Calculation of speed, acceleration, COD load, defender distance, and separation metrics  
-- Visualization of movement paths over a true NBA halfcourt  
-- Heatmaps that reveal driving tendencies and spatial behavior  
-- Contextual insights tied to advantage creation and decision-making  
+Clean and structure frame-level tracking data
 
-The goal is to bridge **data → basketball language**, showing how analytics enhances player development, scouting, and performance workflows.
+Compute movement metrics (speed, acceleration, COD load, distance traveled)
 
----
+Evaluate spacing through defender-distance trends
 
-## 📁 Repository Contents
-📦 college_guard_tracking_sample/
+Identify moments of advantage creation
+
+Map trajectories onto a true NBA half-court for intuitive interpretation
+
+Summarize insights in a client-ready format suitable for coaching and scouting conversations
+
+The notebook is designed as a portfolio sample demonstrating applied tracking analysis, communication clarity, and basketball-specific context.
+
+📁 Repository Contents
+📦 college-guard-tracking-sample
 │
-├── tracking_college_guard_sample.csv # Example tracking dataset
-├── college_guard_tracking_analysis.ipynb # Full Python notebook
-└── README.md # This documentation
+├── tracking_college_guard_sample.csv   # Sample tracking-like dataset
+├── college_guard_tracking_sample.ipynb # Full analysis notebook
+└── README.md                           # Project documentation
 
+🏀 What This Analysis Demonstrates
+1. NBA Court–Mapped Movement Path
 
----
-
-## 🏀 What This Analysis Demonstrates  
-
-### **1. Movement Path (NBA Court Overlay)**
-Shows how the guard moves in space across the possession.  
-Useful for identifying:
-- attack angles  
-- paint access  
-- pacing and tempo changes  
-- decision-making zones  
-
-This is often the first visual used with coaches because it mirrors film, but with objective detail.
-
----
-
-### **2. Movement Density Heatmap**
-A KDE heatmap illustrating where the guard spends the most time.
-
+A clean scatter plot of the guard’s track points scaled to a true half-court.
 Reveals:
-- preferred drive lanes  
-- strong-hand vs. weak-hand tendencies  
-- control points (e.g., nail, slot, free-throw line)  
-- hesitation or pacing areas  
 
-A dense area at the **nail** generally reflects a guard comfortable initiating reads from the middle.
+Primary attack lanes
 
----
+Where drives start and finish
 
-### **3. Defender Distance Heatmap**
-A weighted heatmap that shows where the defender gives cushion or applies pressure.
+Tempo change areas (color-coded speed)
 
+2. Advantage Map (Separation + Pressure)
+
+A court-overlay scatter showing where advantage states occur.
 Useful for:
-- identifying pull-up pockets  
-- understanding how opponents defend the player  
-- recognizing when advantage is created via spacing vs. speed  
 
-This visualization blends biomechanics, tactics, and decision-making.
+Understanding where the guard tends to create separation
 
----
+Identifying whether spacing advantages happen early or late in the possession
 
-### **4. Advantage Map**
-Every frame plotted and colored by advantage state (losing, neutral, gaining).
+Supporting scouting and player development workflows
 
-Helps answer:
-- Where does he create separation?  
-- Does advantage come from burst or angle manipulation?  
-- Do advantages sustain long enough to create shots or passes?  
+3. Derived Movement Metrics
 
-This is directly relevant to SkillCorner’s *Game Intelligence* metrics.
+Automatically computed from tracking data:
 
----
+Computed speed
 
-### **5. Radar Profile – Movement & Separation**
-A quick snapshot summarizing:
-- average & peak speed  
-- acceleration load  
-- change-of-direction load  
-- defender separation  
+Acceleration & deceleration load (COD load)
 
-This serves as a compact athlete overview in scouting or player development contexts.
+Distance traveled per possession
 
----
+High-speed effort identification
 
-## 🧪 Technical Stack  
-**Languages**  
-- Python 3.10
+4. Key Insight Summary
 
-**Core Libraries**  
-- Pandas – data cleaning & feature engineering  
-- NumPy – velocity & acceleration calculations  
-- Matplotlib / Seaborn – tracking-style visualizations  
-- Custom NBA court drawing function for accurate spatial context  
+Printed summary includes:
 
-**Environment**  
-- Google Colab / Jupyter Notebook  
-- Designed for easy use by coaches, analysts, sport science teams
+Total distance covered
 
----
+Peak speed and acceleration
 
-## 🚀 Why This Project Matters  
-This workflow represents a practical example of:
+Mean defender distance
 
-- building reproducible analytics processes  
-- communicating clearly with non-technical stakeholders  
-- connecting movement data to tactical and performance questions  
-- generating visuals suitable for scouting, coach reports, and sport-tech clients  
+Frames spent in advantage states
 
-It demonstrates the type of applied analysis used at:
-- SkillCorner  
-- NBA / WNBA performance & scouting groups  
-- NCAA athlete monitoring departments  
-- Sports technology & player development companies  
+Number of high-speed efforts
 
----
+These metrics provide a compact view of the guard’s physical and tactical behavior during the possession.
 
-## 🎯 Application Areas
-- Player development  
-- Scouting & draft preparation  
-- Team performance analysis  
-- Load monitoring & movement profiling  
-- Sport tech data pipelines (e.g., SkillCorner tracking data)
+🧪 Technical Stack
 
----
+Languages & Libraries
 
-## ▶️ How to Run the Notebook  
-1. Open the notebook in Google Colab  
-2. Upload `tracking_college_guard_sample.csv`  
-3. Run all cells  
-4. Automatically generates all visuals:
-   - Court overlay movement map  
-   - Density heatmap  
-   - Defender-distance heatmap  
-   - Advantage scatter map  
-   - Radar profile  
+Python
 
-No installation or setup required.
+pandas
 
----
+NumPy
 
-## 📬 Contact  
-**Chris Cothern, DPT, CSCS, CPSS**  
-Applied Sports Scientist | Basketball Analytics  
-Website: https://www.chriscothern.com  
-LinkedIn: https://www.linkedin.com/in/chriscothern  
+Matplotlib
 
----
+Seaborn
 
-*Built to translate tracking data into meaningful basketball insight.*
+Methods Included
+
+Data cleaning & validation
+
+Derived metric engineering
+
+Coordinate transformation to NBA court space
+
+Matplotlib-based court overlay construction
+
+Movement visualization
+
+Advantage-state mapping
+
+Summary reporting
+
+Environment
+
+Google Colab (recommended)
+
+Jupyter Notebook compatible
+
+🚀 How to Run the Notebook
+
+Open the notebook in Google Colab
+
+Upload the included CSV when prompted
+
+Run all cells
+
+Generated visuals will include:
+
+Movement Path (NBA Half Court)
+
+Advantage Map
+
+Key insight summary printout
+
+No external dependencies beyond standard Python data libraries.
+
+🔎 Why This Project Matters
+
+This analysis demonstrates the ability to:
+
+Work directly with tracking-style positional data
+
+Apply sport science reasoning to basketball movement
+
+Communicate findings clearly for coaches and scouts
+
+Build reproducible workflows for client-facing use
+
+Understand spatial context—an essential part of interpreting SkillCorner data
+
+It reflects the type of applied analysis often used in:
+
+Scouting & game-model profiling
+
+Player development planning
+
+Performance analysis
+
+Client onboarding & education (SkillCorner-style workflows)
+
+📬 Contact
+
+If you'd like to discuss tracking data, applied sport science, or basketball analytics:
+
+Chris Cothern
+Website: https://www.chriscothern.com
+
+LinkedIn: https://www.linkedin.com/in/chriscothern
